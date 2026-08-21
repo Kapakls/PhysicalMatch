@@ -1,0 +1,64 @@
+{% extends "library/base.html" %}
+
+{% load static %}
+
+{% block title %}PhysicalMatch{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'library/css/index.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+  <h1>
+    Your music.<br />
+    <span>Physical.</span>
+  </h1>
+
+    <p>
+        Support physical media. Connect your Spotify library with the Discogs Marketplace
+        and discover physical releases of your music.
+    </p>
+
+  <a class="login-button" href="{% url 'login' %}">
+    Connect Spotify
+  </a>
+</section>
+
+<section class="features">
+  <div class="feature">
+    <div class="feature-number">01</div>
+
+    <h2>Connect Spotify</h2>
+
+    <p>
+      Connect your Spotify account and import your music library into your
+      account.
+    </p>
+  </div>
+
+  <div class="feature">
+    <div class="feature-number">02</div>
+
+    <h2>Find Releases</h2>
+
+    <p>
+      Match your tastes against the Discogs Marketplace and discover available
+      physical releases.
+    </p>
+  </div>
+
+  <div class="feature">
+    <div class="feature-number">03</div>
+
+    <h2>Compare Listings</h2>
+
+    <p>
+      Compare prices, conditions, seller ratings and locations to find the
+      release that's right for you.
+    </p>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="{% static 'library/css/base.css' %}" />
+
+    {% block extra_css %}{% endblock %}
+
+    <title>{% block title %}PhysicalMatch{% endblock %}</title>
+  </head>
+
+  <body>
+    <nav>
+      <div class="logo">Physical<span>Match</span></div>
+
+      <div class="nav-right">
+        <a href="{% url 'index' %}">Home</a>
+
+        {% if user.is_authenticated %}
+
+        <span class="username">{{ user.display_name }}</span>
+
+        <a
+          href="{{ user.profile_url }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="profile-link"
+        >
+          <img src="{{ user.profile_image }}" alt="{{ user.display_name }}" />
+        </a>
+
+        {% else %}
+
+        <a href="{% url 'login' %}">Login</a>
+
+        {% endif %}
+      </div>
+    </nav>
+
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+      <span>
+        Powered by hopes, dreams, and the
+        <a
+          href="https://github.com/Kapakls/Discogs-Marketplace-API"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Discogs Marketplace API
+        </a>
+      </span>
+
+      <span>
+        · 2026 · Made by
+        <a
+          href="https://github.com/Kapakls"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          @Kapakls
+        </a>
+      </span>
+    </footer>
+  </body>
+</html>
