@@ -2,6 +2,10 @@ import urllib.parse
 
 from django.conf import settings
 
+from library.services.spotify.exceptions import (
+    SpotifyConfigurationError,
+)
+
 from .client import SpotifyClient
 from .schemas.album import SpotifyAlbum
 from .schemas.common import SpotifyToken
@@ -13,6 +17,17 @@ class SpotifyService:
         self.client = client
 
     def get_authorization_url(self) -> str:
+
+        if not settings.SPOTIFY_CLIENT_ID:
+            raise SpotifyConfigurationError(
+                "Spotify client ID is not configured."
+            )
+
+        if not settings.SPOTIFY_REDIRECT_URI:
+            raise SpotifyConfigurationError(
+                "Spotify redirect URI is not configured."
+            )
+
         params = {
             "client_id": settings.SPOTIFY_CLIENT_ID,
             "response_type": "code",

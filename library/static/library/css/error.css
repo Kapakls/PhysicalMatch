@@ -1,0 +1,147 @@
+/* =========================
+   ERROR
+   ========================= */
+
+.error-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 110px 30px 90px;
+    text-align: center;
+}
+
+.error-page h1 {
+    font-size: clamp(42px, 7vw, 78px);
+    line-height: 1;
+    letter-spacing: -4px;
+    margin-bottom: 25px;
+}
+
+.error-page h1 span {
+    color: #1db954;
+}
+
+.error-page p {
+    max-width: 650px;
+    margin: 0 auto 35px;
+    color: #999;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* =========================
+   ERROR MESSAGE
+   ========================= */
+
+.error-message {
+    position: relative;
+
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto 35px;
+    padding: 18px 22px;
+
+    background: #151515;
+    border: 1px solid #242424;
+    border-radius: 10px;
+
+    color: #888;
+    font-family: monospace;
+    font-size: 13px;
+    line-height: 1.6;
+
+    text-align: left;
+
+    cursor: pointer;
+    overflow: hidden;
+
+    transition:
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.error-message:hover {
+    border-color: #333;
+    color: #aaa;
+}
+
+.error-message pre {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.copy-feedback {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(21, 21, 21, 0.92);
+
+    color: #565656;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 0.2s ease;
+}
+
+.error-message.copied .copy-feedback {
+    opacity: 1;
+}
+
+/* =========================
+   BUTTON
+   ========================= */
+
+.error-button {
+    display: inline-block;
+    padding: 15px 28px;
+
+    background: #1db954;
+    color: #000;
+
+    text-decoration: none;
+    border-radius: 30px;
+
+    font-weight: bold;
+
+    transition:
+        transform 0.2s,
+        background 0.2s;
+}
+
+.error-button:hover {
+    background: #1ed760;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 700px) {
+    .error-page {
+        padding-top: 70px;
+    }
+
+    .error-page h1 {
+        letter-spacing: -3px;
+    }
+}

@@ -1,0 +1,56 @@
+{% extends "library/base.html" %}
+{% load static %}
+
+{% block title %}Error · PhysicalMatch{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'library/css/error.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<section class="error-page">
+
+    <h1>
+        Something went<br />
+        <span>wrong.</span>
+    </h1>
+
+    <p>
+        We couldn't complete your request. Please try again or return to the
+        homepage.
+    </p>
+
+    {% if debug %}
+        <div
+            class="error-message"
+            onclick="copyError(this)"
+            title="Click to copy"
+        >
+            <pre>{{ traceback }}</pre>
+            <span class="copy-feedback">Copied!</span>
+        </div>
+    {% endif %}
+
+    <a class="error-button" href="{% url 'index' %}">
+        Return Home
+    </a>
+
+</section>
+
+<script>
+    function copyError(element) {
+        const text = element.querySelector("pre").textContent.trim();
+        const feedback = element.querySelector(".copy-feedback");
+
+        navigator.clipboard.writeText(text);
+
+        element.classList.add("copied");
+
+        setTimeout(() => {
+            element.classList.remove("copied");
+        }, 1000);
+    }
+</script>
+
+{% endblock %}

@@ -6,4 +6,5 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("login/", views.login, name="login"),
     path("callback/", views.callback, name="callback"),
+    path("error/", views.error, name="error"),
 ]
