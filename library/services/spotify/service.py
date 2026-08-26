@@ -7,8 +7,8 @@ from library.services.spotify.exceptions import (
 )
 
 from .client import SpotifyClient
-from .schemas.album import SpotifyAlbum
-from .schemas.common import SpotifyToken
+from .schemas.album import SpotifyAlbum, SpotifyGetAlbumsResponse
+from .schemas.common import Pagination, SpotifyToken
 from .schemas.user import SpotifyUser
 
 
@@ -19,14 +19,10 @@ class SpotifyService:
     def get_authorization_url(self) -> str:
 
         if not settings.SPOTIFY_CLIENT_ID:
-            raise SpotifyConfigurationError(
-                "Spotify client ID is not configured."
-            )
+            raise SpotifyConfigurationError("Spotify client ID is not configured.")
 
         if not settings.SPOTIFY_REDIRECT_URI:
-            raise SpotifyConfigurationError(
-                "Spotify redirect URI is not configured."
-            )
+            raise SpotifyConfigurationError("Spotify redirect URI is not configured.")
 
         params = {
             "client_id": settings.SPOTIFY_CLIENT_ID,
@@ -68,21 +64,18 @@ class SpotifyService:
     async def get_saved_albums(
         self,
         access_token: str,
-        limit: int = 50,
-        offset: int = 0,
+        pagination: Pagination | None = None,
     ) -> list[SpotifyAlbum]:
+
+        if pagination is None:
+            pagination = Pagination()
+            
         response = await self.client.get(
             "/me/albums",
             access_token,
-            params={
-                "limit": limit,
-                "offset": offset,
-            },
+            params=pagination.model_dump(),
         )
 
-        albums = [
-            SpotifyAlbum.model_validate(item["album"])
-            for item in response["items"]
-        ]
+        data = SpotifyGetAlbumsResponse.model_validate(response)
 
-        return albums
+        return data.items

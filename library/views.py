@@ -11,6 +11,7 @@ from library.services.spotify.exceptions import (
     SpotifyConfigurationError,
 )
 from library.services.spotify.schemas.user import SpotifyUser
+from library.services.spotify.service import SpotifyService
 
 from .services.spotify.factory import create_spotify_service
 from .services.user.service import get_or_create_user
@@ -22,7 +23,7 @@ def index(request):
 
 def login(request):
     try:
-        spotify = create_spotify_service()
+        spotify: SpotifyService = create_spotify_service()
         
         authorization_url = spotify.get_authorization_url()
 
@@ -46,7 +47,7 @@ def callback(request):
         if not auth_code:
             raise SpotifyAuthorizationCodeMissingError()
 
-        spotify = create_spotify_service()
+        spotify: SpotifyService = create_spotify_service()
 
         token = asyncio.run(spotify.exchange_code(auth_code))
 
