@@ -27,6 +27,9 @@ class DiscogsService:
             },
         )
 
+        if response.get("error") == "Not Found":
+            return []
+
         data = MarketplaceSearchResponse.model_validate(response)
 
         return data.listings

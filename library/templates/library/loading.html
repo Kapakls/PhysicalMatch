@@ -1,0 +1,44 @@
+{% extends "library/base.html" %}
+
+{% load static %}
+
+{% block title %}
+    PhysicalMatch - Loading
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'library/css/loading.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="music-loading">
+
+    <div class="loading-content">
+
+        <p class="section-label">PHYSICALMATCH</p>
+
+        <h1>
+            Finding your <span>physical releases.</span>
+        </h1>
+
+        <p>
+            We're checking your Spotify collection against the
+            Discogs marketplace.
+        </p>
+
+        <div class="loading-spinner"></div>
+
+        <span class="loading-status">
+            Fetching marketplace data...
+        </span>
+
+    </div>
+
+</section>
+
+<script>
+    window.location.href = "{% url 'market_fetch' %}";
+</script>
+
+{% endblock %}

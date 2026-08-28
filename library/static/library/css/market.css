@@ -1,0 +1,424 @@
+/* =========================
+   MARKET
+   ========================= */
+
+.marketplace-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 30px 100px;
+}
+
+.marketplace-header {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.marketplace-header h1 {
+    font-size: clamp(42px, 6vw, 68px);
+    line-height: 1;
+    letter-spacing: -3px;
+    margin-bottom: 20px;
+}
+
+.marketplace-header h1 span {
+    color: #1db954;
+}
+
+.marketplace-description {
+    max-width: 600px;
+    color: #888;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+/* =========================
+   ALBUM
+   ========================= */
+
+.album-marketplace {
+    margin-bottom: 60px;
+}
+
+.album-heading {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.album-heading-cover {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #111;
+}
+
+.album-heading-cover img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.album-heading-cover-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-size: 10px;
+    text-align: center;
+}
+
+.album-heading-info {
+    min-width: 0;
+}
+
+.album-label {
+    color: #1db954;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    margin-bottom: 5px;
+}
+
+.album-heading h2 {
+    font-size: 22px;
+    line-height: 1.2;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.album-artist {
+    display: inline;
+    color: #888;
+    font-size: 14px;
+}
+
+.album-release-year {
+    color: #555;
+    font-size: 13px;
+    margin-left: 8px;
+}
+
+.album-release-year::before {
+    content: "·";
+    margin-right: 8px;
+}
+
+
+/* =========================
+   LISTINGS
+   ========================= */
+
+.listing-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.listing-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-items: center;
+    gap: 30px;
+
+    background: #151515;
+    border: 1px solid #242424;
+    border-radius: 10px;
+
+    padding: 20px;
+
+    transition:
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.listing-card:hover {
+    border-color: #333;
+    transform: translateY(-2px);
+}
+
+.listing-main {
+    min-width: 0;
+}
+
+.listing-main h3 {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 12px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* =========================
+   CONDITIONS
+   ========================= */
+
+.listing-conditions {
+    display: flex;
+    gap: 20px;
+}
+
+.listing-conditions span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: #aaa;
+    font-size: 13px;
+}
+
+.listing-conditions small {
+    color: #555;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 0.8px;
+}
+
+
+/* =========================
+   SELLER
+   ========================= */
+
+.listing-seller {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+    color: #888;
+    font-size: 13px;
+    text-align: center;
+}
+
+.seller-country {
+    color: #aaa;
+}
+
+.seller-rating {
+    color: #777;
+}
+
+
+/* =========================
+   PRICE
+   ========================= */
+
+.listing-price {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.listing-price strong {
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.listing-price strong span {
+    color: #777;
+    font-size: 12px;
+    font-weight: normal;
+    margin-left: 2px;
+}
+
+.listing-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+
+    padding: 9px 15px;
+
+    background: #1db954;
+    color: #000;
+
+    border-radius: 20px;
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.listing-link:hover {
+    background: #1ed760;
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   NO LISTINGS
+   ========================= */
+
+.no-listings {
+    padding: 25px;
+
+    background: #151515;
+    border: 1px solid #242424;
+    border-radius: 10px;
+}
+
+.no-listings-label {
+    display: block;
+
+    color: #555;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+
+    margin-bottom: 8px;
+}
+
+.no-listings p {
+    color: #666;
+    font-size: 14px;
+}
+
+
+/* =========================
+   EMPTY MARKET
+   ========================= */
+
+.empty-marketplace {
+    padding: 100px 20px;
+
+    text-align: center;
+
+    background: #151515;
+    border: 1px solid #242424;
+    border-radius: 14px;
+}
+
+.empty-marketplace h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.empty-marketplace p {
+    max-width: 500px;
+    margin: 0 auto 25px;
+
+    color: #777;
+    line-height: 1.6;
+}
+
+.marketplace-back {
+    display: inline-block;
+
+    padding: 10px 18px;
+
+    background: #1db954;
+    color: #000;
+
+    border-radius: 20px;
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.marketplace-back:hover {
+    background: #1ed760;
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 800px) {
+
+    .listing-card {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .listing-seller {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        gap: 15px;
+    }
+
+    .listing-price {
+        justify-content: space-between;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .marketplace-page {
+        padding-top: 60px;
+    }
+
+    .album-heading {
+        align-items: flex-start;
+    }
+
+    .album-heading h2 {
+        white-space: normal;
+    }
+
+    .listing-conditions {
+        flex-wrap: wrap;
+        gap: 10px 20px;
+    }
+}
+
+
+@media (max-width: 450px) {
+
+    .marketplace-page {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .marketplace-header h1 {
+        letter-spacing: -2px;
+    }
+
+    .album-heading-cover {
+        width: 56px;
+        height: 56px;
+    }
+
+    .album-heading h2 {
+        font-size: 18px;
+    }
+
+    .listing-card {
+        padding: 16px;
+    }
+
+    .listing-price {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .listing-link {
+        width: 100%;
+        justify-content: center;
+    }
+}

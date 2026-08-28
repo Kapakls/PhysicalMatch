@@ -1,0 +1,196 @@
+{% extends "library/base.html" %}
+
+{% load static %}
+
+{% block title %}
+    PhysicalMatch - Marketplace
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'library/css/market.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="marketplace-page">
+
+    <header class="marketplace-header">
+
+        <h1>
+            Physical <span>Releases.</span>
+        </h1>
+
+        <p class="marketplace-description">
+            Find physical copies of the music in your collection,
+            available from sellers through the Discogs Marketplace.
+        </p>
+
+    </header>
+
+
+    {% if albums %}
+
+        <div class="marketplace-results">
+
+            {% for album in albums %}
+
+                <section class="album-marketplace">
+
+                    <header class="album-heading">
+
+                        <div class="album-heading-cover">
+
+                            {% if album.artwork %}
+                                <img
+                                    src="{{ album.artwork }}"
+                                    alt="{{ album.title }} by {{ album.artist }}"
+                                    loading="lazy"
+                                >
+                            {% else %}
+                                <div class="album-heading-cover-placeholder">
+                                    <span>No Artwork</span>
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+                        <div class="album-heading-info">
+
+                            <p class="album-label">
+                                YOUR COLLECTION
+                            </p>
+
+                            <h2>{{ album.title }}</h2>
+
+                            <p class="album-artist">
+                                {{ album.artist }}
+                            </p>
+
+                            {% if album.release_date %}
+                                <span class="album-release-year">
+                                    {{ album.release_date|date:"Y" }}
+                                </span>
+                            {% endif %}
+                        </div>
+
+                    </header>
+
+
+                    <div class="listing-list">
+
+                        {% for listing in album.discogs_marketplace_listings.all %}
+
+                            <article class="listing-card">
+
+                                <div class="listing-main">
+
+                                    <h3>
+                                        {{ listing.title }}
+                                    </h3>
+
+                                    <div class="listing-conditions">
+
+                                        <span>
+                                            <small>MEDIA</small>
+                                            {{ listing.media_condition }}
+                                        </span>
+
+                                        <span>
+                                            <small>SLEEVE</small>
+                                            {{ listing.sleeve_condition }}
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="listing-seller">
+
+                                    <span class="seller-country">
+                                        {{ listing.seller_country }}
+                                    </span>
+
+                                    {% if listing.seller_rating %}
+                                        <span class="seller-rating">
+                                            {{ listing.seller_rating }}/5
+                                        </span>
+                                    {% endif %}
+
+                                </div>
+
+
+                                <div class="listing-price">
+
+                                    <strong>
+                                        {{ listing.price }}
+                                        <span>{{ listing.currency }}</span>
+                                    </strong>
+
+                                    <a
+                                        href="{{ listing.listing_url }}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="listing-link"
+                                    >
+                                        View Listing
+                                        <span aria-hidden="true">↗</span>
+                                    </a>
+
+                                </div>
+
+                            </article>
+
+                        {% empty %}
+
+                            <div class="no-listings">
+
+                                <span class="no-listings-label">
+                                    NO MATCHES
+                                </span>
+
+                                <p>
+                                    No Discogs listings were found
+                                    for this release.
+                                </p>
+
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                </section>
+
+            {% endfor %}
+
+        </div>
+
+    {% else %}
+
+        <div class="empty-marketplace">
+
+            <p class="section-label">
+                MARKETPLACE
+            </p>
+
+            <h2>
+                Your collection is empty.
+            </h2>
+
+            <p>
+                Connect your Spotify account and we'll look for
+                physical releases available through the Discogs Marketplace.
+            </p>
+
+            <a href="{% url 'index' %}" class="marketplace-back">
+                Return to Collection
+            </a>
+
+        </div>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}
