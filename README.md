@@ -255,4 +255,4 @@ For Discogs, refer to the [Discogs Terms of Service](https://support.discogs.com
 
 No AI-generated code was used in the backend implementation of PhysicalMatch. The backend architecture, business logic, API implementation, integrations, and data models were designed and implemented manually.
 
-AI tools were used only as an assistance tool during the development of the user interface.
+AI tools were used only as an assistance tool during the development of the user interface, as that is not exactly where I’m able to shine.

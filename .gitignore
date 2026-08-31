@@ -1,6 +1,7 @@
 .venv/
 .env
 .env.*
+!.env.example
 __pycache__/
 *.py[cod]
 *.pyo
@@ -15,4 +16,3 @@ build/
 dist/
 *.egg-info/
 certs/
-.pytest_cache/
