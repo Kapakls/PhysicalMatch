@@ -2,7 +2,7 @@
 
 PhysicalMatch is a full-stack application for discovering physical music releases corresponding to a user's Spotify library through the Discogs Marketplace.
 
-The application combines a Django web application with a dedicated FastAPI service for Marketplace search and listing matching [dedicated FastAPI service for Marketplace search and listing matching](https://github.com/Kapakls/Discogs-Marketplace-API). Spotify provides the user's music library, while the Marketplace service handles Discogs integration, listing extraction, normalization, and similarity-based matching.
+The application combines a Django web application with a [dedicated FastAPI service for Marketplace search and listing matching](https://github.com/Kapakls/Discogs-Marketplace-API). Spotify provides the user's music library, while the Marketplace service handles Discogs integration, listing extraction, normalization, and similarity-based matching.
 
 ## Screenshots
 
@@ -19,9 +19,9 @@ PhysicalMatch
 │
 ├── Django Application
 │   ├── Authentication
-│   ├── Spotify Integration
+│   ├── Spotify API Integration
+│   ├── Discogs Marketplace API Integration
 │   ├── Library Management
-│   ├── PostgreSQL Persistence
 │   └── Web Interface
 │
 └── FastAPI Marketplace Service
@@ -63,7 +63,7 @@ This keeps HTTP communication, parsing, business logic, and API schemas independ
 PhysicalMatch currently provides:
 
 * Spotify OAuth authentication and library retrieval.
-* Persistent storage of Spotify album metadata.
+* Persistent storage of Spotify album metadata tied to a user.
 * Discogs Marketplace search and listing extraction.
 * Similarity-based matching between albums and Marketplace listings.
 * Structured Marketplace responses through a REST API.
@@ -124,7 +124,7 @@ The threshold is configurable per request, allowing consumers of the API to cont
 
 ## API
 
-The Marketplace functionality is exposed through FastAPI.
+The Marketplace functionality is exposed through the [Discogs-Marketplace-API](https://github.com/Kapakls/Discogs-Marketplace-API).
 
 A request consists of the artist, album, and an optional similarity threshold.
 
@@ -158,13 +158,11 @@ Example:
 }
 ```
 
-FastAPI provides interactive API documentation through Swagger UI and ReDoc.
-
-## Data Persistence
+## Database
 
 PostgreSQL is used as the application's primary relational database.
 
-The Django application persists Spotify album metadata and Marketplace information using relational models. Albums and Marketplace listings are associated so that discovered physical releases can be linked to their corresponding library entries.
+The Django application persists Users' data, Spotify album metadata and Marketplace information using relational models. Albums and Marketplace listings are associated so that discovered physical releases can be linked to their corresponding library entries and tied to Users.
 
 The current data model includes entities for:
 
@@ -219,7 +217,7 @@ python -m pip install -r requirements.txt
 
 Configure the required application and Spotify credentials.
 
-Start the FastAPI Marketplace service:
+Start the FastAPI Marketplace service on a different port:
 
 ```powershell
 python -m uvicorn main:app --reload
@@ -228,7 +226,7 @@ python -m uvicorn main:app --reload
 The API will be available at:
 
 ```text
-http://127.0.0.1:8000
+http://127.0.0.1:8001
 ```
 
 Interactive API documentation:
@@ -245,15 +243,13 @@ python manage.py runserver
 
 ## Disclaimer
 
+This project is provided for personal and educational development purposes.
+
 PhysicalMatch interacts with third-party services, including Spotify and Discogs, and uses web scraping for Marketplace data acquisition.
 
 Users are responsible for complying with the applicable terms of service, API policies, and usage restrictions of these services.
 
 For Discogs, refer to the [Discogs Terms of Service](https://support.discogs.com/hc/en-us/articles/360009334333-Terms-of-Service).
-
-## License
-
-This project is provided for personal and educational development purposes.
 
 ## AI Disclaimer
 
