@@ -6,9 +6,9 @@ The application combines a Django web application with a dedicated FastAPI servi
 
 ## Screenshots
 
-### Library
+### Music Library
 
-![PhysicalMatch Library](docs/screenshots/index.png)
+![PhysicalMatch Library](docs/screenshots/library.png)
 
 ## Architecture
 
@@ -138,21 +138,21 @@ Example:
 
 ```json
 {
-    "album": "The Dark Side of the Moon",
+    "album": "NEVER ENOUGH",
     "threshold": 0.1,
-    "total": 2,
+    "total": 1,
     "listings": [
         {
-            "title": "Pink Floyd - The Dark Side Of The Moon",
-            "price": 25.00,
+            "title": "Turnstile (2) - Never Enough (LP, Album)",
+            "price": "37.99",
             "currency": "EUR",
-            "listing_id": 123456789,
-            "listing_url": "https://www.discogs.com/sell/item/123456789",
-            "seller_country": "GR",
-            "media_condition": "Very Good Plus (VG+)",
-            "sleeve_condition": "Very Good Plus (VG+)",
-            "seller_rating": 99.8,
-            "similarity": 0.75
+            "listing_id": "4289311446",
+            "listing_url": "https://www.discogs.com/sell/item/4289311446",
+            "seller_country": "DE",
+            "media_condition": "Mint (M)Absolutely perfect in every way. Certainly never been played. Should be used sparingly as a grade.",
+            "sleeve_condition": "Mint (M)",
+            "seller_rating": "100.0",
+            "similarity": 0.3333333333333333
         }
     ]
 }
