@@ -2,7 +2,7 @@
 
 PhysicalMatch is a full-stack application for discovering physical music releases corresponding to a user's Spotify library through the Discogs Marketplace.
 
-The application combines a Django web application with a dedicated FastAPI service for Marketplace search and listing matching. Spotify provides the user's music library, while the Marketplace service handles Discogs integration, listing extraction, normalization, and similarity-based matching.
+The application combines a Django web application with a dedicated FastAPI service for Marketplace search and listing matching [dedicated FastAPI service for Marketplace search and listing matching](https://github.com/Kapakls/Discogs-Marketplace-API). Spotify provides the user's music library, while the Marketplace service handles Discogs integration, listing extraction, normalization, and similarity-based matching.
 
 ## Screenshots
 
