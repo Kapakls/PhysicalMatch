@@ -77,13 +77,12 @@ PhysicalMatch currently provides:
 * Python
 * Django
 * FastAPI
-* Pydantic
 * PostgreSQL
 
-### Integrations
+### External APIs
 
 * Spotify Web API
-* Discogs Marketplace
+* [Discogs Marketplace API](https://github.com/Kapakls/Discogs-Marketplace-API)
 
 ### Frontend
 
@@ -91,7 +90,7 @@ PhysicalMatch currently provides:
 * CSS
 * JavaScript
 
-### Supporting Libraries
+### Libraries
 
 * Requests
 * Cloudscraper
@@ -101,7 +100,7 @@ PhysicalMatch currently provides:
 
 ## Marketplace Matching
 
-Marketplace matching is handled independently from the Django application by the FastAPI service.
+Marketplace matching is handled independently from the Django application by the [Discogs Marketplace API](https://github.com/Kapakls/Discogs-Marketplace-API).
 
 For each requested album, the service:
 
@@ -193,7 +192,7 @@ PostgreSQL
 Marketplace Matching
 ```
 
-Spotify-specific integration is kept within the Django application, while Marketplace functionality is delegated to the FastAPI service.
+Spotify-specific integration is kept within the Django application, while Marketplace functionality is delegated to the [Discogs Marketplace API](https://github.com/Kapakls/Discogs-Marketplace-API).
 
 ## Running Locally
 
@@ -223,7 +222,7 @@ Start the FastAPI Marketplace service on a different port:
 python -m uvicorn main:app --reload
 ```
 
-The API will be available at:
+The API will (hopefully) be available at:
 
 ```text
 http://127.0.0.1:8001
@@ -247,7 +246,7 @@ This project is provided for personal and educational development purposes.
 
 PhysicalMatch interacts with third-party services, including Spotify and Discogs, and uses web scraping for Marketplace data acquisition.
 
-Users are responsible for complying with the applicable terms of service, API policies, and usage restrictions of these services.
+Users are responsible for complying with the applicable terms of service, API policies, and usage restrictions of these services. Don't abuse stuff.
 
 For Discogs, refer to the [Discogs Terms of Service](https://support.discogs.com/hc/en-us/articles/360009334333-Terms-of-Service).
 
