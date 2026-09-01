@@ -219,7 +219,7 @@ Configure the required application and Spotify credentials.
 Start the FastAPI Marketplace service on a different port:
 
 ```powershell
-python -m uvicorn main:app --reload
+uvicorn main:app --host 0.0.0.0 --port 8001
 ```
 
 The API will (hopefully) be available at:
