@@ -70,7 +70,7 @@ PhysicalMatch currently provides:
 * Listing metadata including price, currency, conditions, seller information, and similarity score.
 * PostgreSQL-backed application persistence.
 
-## Technology Stack
+## Stack
 
 ### Application
 
