@@ -219,7 +219,7 @@ Configure the required application and Spotify credentials.
 Start the FastAPI Marketplace service on a different port:
 
 ```powershell
-uvicorn main:app --host 0.0.0.0 --port 8001
+uvicorn main:app --host 127.0.0.1 --port 8001
 ```
 
 The API will (hopefully) be available at:
@@ -231,7 +231,7 @@ http://127.0.0.1:8001
 Interactive API documentation:
 
 ```text
-http://127.0.0.1:8000/docs
+http://127.0.0.1:8001/docs
 ```
 
 Start the Django application separately:
