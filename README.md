@@ -107,7 +107,7 @@ For each requested album, the service:
 1. Queries the Discogs Marketplace using the supplied artist and album.
 2. Parses the returned Marketplace data into structured listing objects.
 3. Normalizes the album and listing titles into comparable word sets.
-4. Calculates Jaccard similarity between the album title and each listing title.
+4. Calculates Jaccard similarity between the album's artist and title and each listing title.
 5. Filters listings against the configured similarity threshold.
 6. Returns the matching listings as a validated `MarketplaceMatchResponse`.
 
